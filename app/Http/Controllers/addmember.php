@@ -29,7 +29,7 @@ class addmember extends Controller
           $member->email=$req->email;
           $member->address=$req->address;
           $member->save();
-          session()->flash('status', 'successfuly added member !');
+          session()->flash('status', 'successfuly added member ');
           return  redirect('showm');
         }
           /// Showing member to the data base function
@@ -37,4 +37,10 @@ class addmember extends Controller
             $data = member::paginate(2);
             return view('addmember',['members'=>$data]);
           }
+            /// Showing member to the data base function
+            public function deletemember($id){
+              $data = member::find($id);
+              $data->delete();
+              return  redirect('showm');
+            }
 }

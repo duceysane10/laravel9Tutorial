@@ -25,6 +25,7 @@
     <th>member name</th>
     <th>email</th>
     <th>Adrres</th>
+    <th>action</th>
 </tr>
 @foreach($members as $row)
 <tr>
@@ -32,6 +33,8 @@
     <td>{{$row['name']}}</td>
     <td>{{$row['email']}}</td> 
     <td>{{$row['address']}}</td>
+    <td><a href={{"delete/".$row['id']}} style="color:red">Delete</a>
+    <a href={{"edit/".$row['id']}}>Update</a></td>
     
 </tr>
 @endforeach 
