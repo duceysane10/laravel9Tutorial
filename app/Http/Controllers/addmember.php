@@ -34,7 +34,7 @@ class addmember extends Controller
         }
           /// Showing member to the data base function
           public function showmember(Request $req){
-            $data = member::all();
+            $data = member::paginate(2);
             return view('addmember',['members'=>$data]);
           }
 }

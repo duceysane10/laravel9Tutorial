@@ -36,3 +36,9 @@
 </tr>
 @endforeach 
 </table>
+<p>{{$members->links()}}</p>
+<style>
+    .w-5{
+        display: none;
+    }
+</style>
