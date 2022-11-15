@@ -90,3 +90,7 @@ Route ::post('/addmember',[addmember::class,'addmember']);
 Route ::get('/showm',[addmember::class,'showmember']);
 /// showing All members //////////////////////////////
 Route ::get('delete/{id}',[addmember::class,'deletemember']);
+/// getin one members to update //////////////////////////////
+Route ::get('edit/{id}',[addmember::class,'getmember']);
+/// updating  //////////////////////////////
+Route ::post('update/',[addmember::class,'updatemember']);

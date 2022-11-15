@@ -19,6 +19,9 @@
 
 
 <h1 style="background-color:antiquewhite;">dispalying All Members from the database</h1>
+@if(session('deleteS'))
+<h3 style="color:red;">{{session('deleteS')}}</h3>
+@endif
 <table border="1px"  style="text-align:center">
 <tr style="background-color: antiquewhite;">
     <th>Member id</th>
@@ -34,7 +37,7 @@
     <td>{{$row['email']}}</td> 
     <td>{{$row['address']}}</td>
     <td><a href={{"delete/".$row['id']}} style="color:red">Delete</a>
-    <a href={{"edit/".$row['id']}}>Update</a></td>
+    <a href={{"edit/".$row['id']}}>Edit</a></td>
     
 </tr>
 @endforeach 

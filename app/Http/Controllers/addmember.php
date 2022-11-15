@@ -41,6 +41,28 @@ class addmember extends Controller
             public function deletemember($id){
               $data = member::find($id);
               $data->delete();
+              session()->flash('deleteS', 'successfuly Deleted member ');
               return  redirect('showm');
             }
+            /// Showing member to the data base function
+            public function getmember($id){
+              $data = member::find($id);
+              return  view('editm',['data'=>$data]);
+            }
+            /// ading member to the data base function
+        public function updatemember(Request $req){
+          $req->validate(
+            [   'name'=> 'required | max:20',
+                'email' => 'required ',
+                'address' => 'required '
+            
+          ]);
+          $member = member::find($req->id);
+          $member->name=$req->name;
+          $member->email=$req->email;
+          $member->address=$req->address;
+          $member->save();
+          session()->flash('status', 'member was updated !');
+          return  redirect('showm');
+        }
 }
