@@ -84,3 +84,6 @@ Route :: view('addm','addm');
 ///////// uplading file view ///////
 Route::view('upload','upload');
 Route::post('upload',[UploadController::class,'upload']);
+//////// Adding members to the database ///////////
+Route ::post('/addmember',[addmember::class,'addmember']);
+Route :: view('members','addmember');
