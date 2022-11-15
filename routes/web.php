@@ -86,4 +86,5 @@ Route::view('upload','upload');
 Route::post('upload',[UploadController::class,'upload']);
 //////// Adding members to the database ///////////
 Route ::post('/addmember',[addmember::class,'addmember']);
-Route :: view('members','addmember');
+/// showing All members //////////////////////////////
+Route ::get('/showm',[addmember::class,'showmember']);

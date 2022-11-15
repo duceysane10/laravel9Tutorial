@@ -1,8 +1,6 @@
 <h1  style="background-color:antiquewhite;">User registration</h1>
 <form action="Users" method="POST">
     @csrf
-    <input type="text" name="id"  value="" placeholder="enter user id"><br/>
-    <span style="color: red;">@error('username'){{$message}}@enderror</span>
     <br/>
     <input type="text" name="first_name"  value="{{old('username')}}" placeholder="enter first name"><br/>
     <span style="color: red;">@error('username'){{$message}}@enderror</span>

@@ -30,6 +30,11 @@ class addmember extends Controller
           $member->address=$req->address;
           $member->save();
           session()->flash('status', 'successfuly added member !');
-          return  view('addmember');
+          return  redirect('showm');
         }
+          /// Showing member to the data base function
+          public function showmember(Request $req){
+            $data = member::all();
+            return view('addmember',['members'=>$data]);
+          }
 }

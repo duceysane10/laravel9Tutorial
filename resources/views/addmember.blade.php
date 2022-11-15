@@ -15,4 +15,24 @@
     <span style="color: red;">@error('address'){{$message}}@enderror</span><br/>
     <button type="submit"  style="background-color:aqua; height:30px; font: sixe 16px;">Add member</button>
 
-</form>
+</form><br/>
+
+
+<h1 style="background-color:antiquewhite;">dispalying All Members from the database</h1>
+<table border="1px"  style="text-align:center">
+<tr style="background-color: antiquewhite;">
+    <th>Member id</th>
+    <th>member name</th>
+    <th>email</th>
+    <th>Adrres</th>
+</tr>
+@foreach($members as $row)
+<tr>
+    <td>{{$row['id']}}</td>
+    <td>{{$row['name']}}</td>
+    <td>{{$row['email']}}</td> 
+    <td>{{$row['address']}}</td>
+    
+</tr>
+@endforeach 
+</table>
