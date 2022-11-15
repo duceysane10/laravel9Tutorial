@@ -1,12 +1,12 @@
 <?php
-
+// importing All Controller 
 use App\Http\Controllers\addmember;
 use App\Http\Controllers\login;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\products;
 use Illuminate\Support\Facades\Route;
-// importing Controller Users
 use App\Http\Controllers\Users;
+use App\Http\Controllers\UploadController;
 use GuzzleHttp\Middleware;
 
 /*
@@ -80,3 +80,7 @@ Route::get('about',function(){
 // //////////////////////// geting form data /////////////////////////
 Route ::post('/Addm',[addmember::class,'Add']);
 Route :: view('addm','addm');
+
+///////// uplading file view ///////
+Route::view('upload','upload');
+Route::post('upload',[UploadController::class,'upload']);
