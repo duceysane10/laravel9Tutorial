@@ -1,6 +1,6 @@
 <h1  style="background-color:antiquewhite;">Add members To the Database</h1>
-@if(session('status'))
-<h3 style="color:green;">{{session('status')}}</h3>
+@if(session('save'))
+<h3>{{toastr()->success('Data has been saved successfully!');}}</h3>
 @endif
 <form action="addmember" method="POST">
     @csrf

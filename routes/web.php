@@ -94,3 +94,6 @@ Route ::get('delete/{id}',[addmember::class,'deletemember']);
 Route ::get('edit/{id}',[addmember::class,'getmember']);
 /// updating  //////////////////////////////
 Route ::post('update/',[addmember::class,'updatemember']);
+
+// calling Join Route
+Route::get('join',[addmember::class,'joinD']);

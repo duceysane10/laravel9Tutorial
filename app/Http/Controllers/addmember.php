@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\member;
+use Illuminate\Support\Facades\DB;
 
 class addmember extends Controller
 {
@@ -29,12 +30,12 @@ class addmember extends Controller
           $member->email=$req->email;
           $member->address=$req->address;
           $member->save();
-          session()->flash('status', 'successfuly added member ');
+          session()->flash('save'); 
           return  redirect('showm');
         }
           /// Showing member to the data base function
           public function showmember(Request $req){
-            $data = member::paginate(2);
+            $data = member::paginate(5);
             return view('addmember',['members'=>$data]);
           }
             /// Showing member to the data base function
@@ -64,5 +65,13 @@ class addmember extends Controller
           $member->save();
           session()->flash('status', 'member was updated !');
           return  redirect('showm');
+        }
+
+        // Using Joins 
+        function joinD(){
+          
+          return Db::table('members')->join('company','members.id', "=", 'company.member_id')->where('members.id',13)
+          ->get();
+
         }
 }
