@@ -81,6 +81,6 @@ class addmember extends Controller
 
     // one To Many relation ship
      function oneTomany(){
-        return Member::find(1)->getCompanyMany;
+        return Member::find(1)->getCompanyMany->where('co_name','habraac');
     }
 }
