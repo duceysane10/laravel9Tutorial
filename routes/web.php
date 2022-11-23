@@ -7,6 +7,7 @@ use App\Http\Controllers\products;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Users;
 use App\Http\Controllers\UploadController;
+use App\Mail\Samplemail;
 use GuzzleHttp\Middleware;
 
 /*
@@ -102,3 +103,9 @@ Route::get('join',[addmember::class,'joinD']);
 Route::get('OneToOne',[addmember::class,'oneToOne']);
 // one To Many Raltion ship
 Route::get('oneTomany',[addmember::class,'oneTomany']);
+
+//// Email Template
+
+Route::get('mail', function () {
+    return new Samplemail();
+});
