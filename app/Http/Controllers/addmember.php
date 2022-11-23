@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class addmember extends Controller
 {
-          // function ka hoose wuxuu xogta ka qabanaa formka ku jira produc.blade.php kedibna wuu soo bandhigaa  
+          // function ka hoose wuxuu xogta ka qabanaa formka ku jira produc.blade.php kedibna wuu soo bandhigaa
           public function Add(Request $req){
             // adding validation
              $req->input('username');
@@ -23,14 +23,14 @@ class addmember extends Controller
             [   'name'=> 'required | max:20',
                 'email' => 'required ',
                 'address' => 'required '
-            
+
           ]);
           $member= new member();
           $member->name=$req->name;
           $member->email=$req->email;
           $member->address=$req->address;
           $member->save();
-          session()->flash('save'); 
+          session()->flash('save');
           return  redirect('showm');
         }
           /// Showing member to the data base function
@@ -56,7 +56,7 @@ class addmember extends Controller
             [   'name'=> 'required | max:20',
                 'email' => 'required ',
                 'address' => 'required '
-            
+
           ]);
           $member = member::find($req->id);
           $member->name=$req->name;
@@ -67,11 +67,15 @@ class addmember extends Controller
           return  redirect('showm');
         }
 
-        // Using Joins 
+        // Using Joins
         function joinD(){
-          
+
           return Db::table('members')->join('company','members.id', "=", 'company.member_id')->where('members.id',13)
           ->get();
 
         }
+    // One To One relation ship
+    function oneToOne(){
+        return Member::find(5)->getCompany;
+    }
 }

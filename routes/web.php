@@ -1,5 +1,5 @@
 <?php
-// importing All Controller 
+// importing All Controller
 use App\Http\Controllers\addmember;
 use App\Http\Controllers\login;
 use App\Http\Controllers\LoginController;
@@ -34,7 +34,7 @@ Route ::post('/products',[products::class,'getdata']);
 Route :: view('login','product');
 
 ///////////////////////// Tree Types Of Middle ware are down ////////////////////
-// single Route middleware 
+// single Route middleware
 Route :: view('contact','contact')->middleware('single');
 
 // ///////////////// Group Middle ware /////////
@@ -97,3 +97,6 @@ Route ::post('update/',[addmember::class,'updatemember']);
 
 // calling Join Route
 Route::get('join',[addmember::class,'joinD']);
+
+// one To one Raltion ship
+Route::get('OneToOne',[addmember::class,'oneToOne']);

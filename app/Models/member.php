@@ -10,7 +10,7 @@ class member extends Model
     use HasFactory;
 
     // hoos waxaan ku abuuranay labo function oo ah Mutator: wuxuu badalayaa xogta intaana database ka lagu safe gareen sida aad udalbato labada function hoose midna magaca ayaan dhahay ka hor mari
-    // Eng midka labaadna waxaan dhahay addreska ku dar somalia 
+    // Eng midka labaadna waxaan dhahay addreska ku dar somalia
     public function setNameAttribute($value){
         $this->attributes['name']= 'Eng '.$value;
     }
@@ -23,4 +23,9 @@ class member extends Model
     //    functionka hoose waxaan dhahay ii soo bandhig xogta adigoo clomka name magacyda ku jiro aad kadhigeesid xarafka u horeeyo capital
       public function getNameAttribute($value){
         return ucfirst($value);    }
+
+    // one To One Relation ship
+    public function getCompany(){
+        return $this->hasOne('App\Models\Company');
+    }
 }
