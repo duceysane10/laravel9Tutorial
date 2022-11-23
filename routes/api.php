@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\ApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Models\Student;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +19,17 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// //////////////////////// Insert Route data /////////////////////////
+Route::post('/Student',[ApiController::class,'addmember']
+);
+
+// //////////////////////// Update Routedata /////////////////////////
+Route::put('/update/{id}',[ApiController::class,'updatemember']
+);
+// //////////////////////// Delete Routedata /////////////////////////
+Route::delete('/delete/{id}',[ApiController::class,'deleteemember']
+);
+// ///////// Showing data
+Route::get('/Show/{id}',[ApiController::class,'show']
+);
