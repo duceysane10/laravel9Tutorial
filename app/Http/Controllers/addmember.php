@@ -78,4 +78,9 @@ class addmember extends Controller
     function oneToOne(){
         return Member::find(5)->getCompany;
     }
+
+    // one To Many relation ship
+     function oneTomany(){
+        return Member::find(1)->getCompanyMany;
+    }
 }

@@ -28,4 +28,8 @@ class member extends Model
     public function getCompany(){
         return $this->hasOne('App\Models\Company');
     }
+      // one To Many relation ship
+      public function getCompanyMany(){
+        return $this->hasMany('App\Models\Company');
+    }
 }

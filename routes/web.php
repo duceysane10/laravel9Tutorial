@@ -100,3 +100,5 @@ Route::get('join',[addmember::class,'joinD']);
 
 // one To one Raltion ship
 Route::get('OneToOne',[addmember::class,'oneToOne']);
+// one To Many Raltion ship
+Route::get('oneTomany',[addmember::class,'oneTomany']);
