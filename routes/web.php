@@ -77,32 +77,39 @@ Route::get('about',function(){
     }
 });
 
-///////////// sessing using Flash ///////////////////
-// //////////////////////// geting form data /////////////////////////
-Route ::post('/Addm',[addmember::class,'Add']);
-Route :: view('addm','addm');
+
 
 ///////// uplading file view ///////
 Route::view('upload','upload');
 Route::post('upload',[UploadController::class,'upload']);
+
+// Route controller featurekaan waxaa wata laravel 9
+Route::controller(addmember::class)->group(function(){
 //////// Adding members to the database ///////////
-Route ::post('/addmember',[addmember::class,'addmember']);
+Route ::post('/addmember','addmember');
 /// showing All members //////////////////////////////
-Route ::get('/showm',[addmember::class,'showmember']);
+Route ::get('/showm','showmember');
 /// showing All members //////////////////////////////
-Route ::get('delete/{id}',[addmember::class,'deletemember']);
+Route ::get('delete/{id}','deletemember');
 /// getin one members to update //////////////////////////////
-Route ::get('edit/{id}',[addmember::class,'getmember']);
+Route ::get('edit/{id}','getmember');
 /// updating  //////////////////////////////
-Route ::post('update/',[addmember::class,'updatemember']);
+Route ::post('update/','updatemember');
 
 // calling Join Route
-Route::get('join',[addmember::class,'joinD']);
+Route::get('join','joinD');
 
 // one To one Raltion ship
-Route::get('OneToOne',[addmember::class,'oneToOne']);
+Route::get('OneToOne','oneToOne');
 // one To Many Raltion ship
-Route::get('oneTomany',[addmember::class,'oneTomany']);
+Route::get('oneTomany','oneTomany');
+///////////// sessing using Flash ///////////////////
+// //////////////////////// geting form data /////////////////////////
+Route ::post('/Addm','Add');
+});
+Route :: view('addm','addm');
+// Enf addmember Conroller Route
+
 
 //// Email Template
 

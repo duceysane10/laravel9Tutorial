@@ -41,4 +41,10 @@ class ApiController extends Controller
         return response()->json('succes fully Deleted');
       }
 
+      /// Uploading File using Api
+      public function upload(Request $req){
+        $result = $req->file('file')->store('ApiDoc');
+        return ['result'=> $result];
+      }
+
 }
