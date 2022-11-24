@@ -10,7 +10,10 @@ class ApiController extends Controller
 {
     /// ading member to the data base Using Post man API
     public function addmember(Request $req){
-
+        $req->validate([
+            'name' => 'required',
+            'email' => 'required'
+        ]);
         $member= new Student();
         $member->name=$req->input('name');
         $member->email=$req->input('email');
@@ -26,7 +29,10 @@ class ApiController extends Controller
           }
     // update API
     public function updatemember(Request $req){
-
+        $req->validate([
+            'name' => 'required',
+            'email' => 'required'
+        ]);
         $member = Student::find($req->id);
         $member->name=$req->name;
         $member->email=$req->email;

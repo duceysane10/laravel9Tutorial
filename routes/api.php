@@ -33,6 +33,9 @@ Route::delete('/delete/{id}',[ApiController::class,'deleteemember']
 // ///////// Showing data
 Route::get('/Show/{id}',[ApiController::class,'show']
 );
+// ///////// Showing Alldata
+Route::get('/ShowAll',[ApiController::class,'showAll']
+);
 
 // ///////// uploading FIlle
 Route::post('/file',[ApiController::class,'upload']
