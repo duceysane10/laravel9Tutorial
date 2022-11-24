@@ -38,6 +38,7 @@ Route::get('/ShowAll',[ApiController::class,'showAll']
 );
 // ///////// Search by name
 Route::get('/search/{name}',[ApiController::class,'search']
+
 );
 
 // ///////// uploading FIlle
