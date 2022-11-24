@@ -36,6 +36,9 @@ Route::get('/Show/{id}',[ApiController::class,'show']
 // ///////// Showing Alldata
 Route::get('/ShowAll',[ApiController::class,'showAll']
 );
+// ///////// Search by name
+Route::get('/search/{name}',[ApiController::class,'search']
+);
 
 // ///////// uploading FIlle
 Route::post('/file',[ApiController::class,'upload']

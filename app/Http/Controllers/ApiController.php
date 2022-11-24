@@ -27,6 +27,12 @@ class ApiController extends Controller
             $data = Student::find($req->id);
             return response()->json($data);
           }
+
+      //////////// Seraching member by nameto the data base function
+         public function search($name){
+            $data = Student::where('name', 'like', '%'.$name.'%')->get();
+            return response()->json($data);
+          }
     // update API
     public function updatemember(Request $req){
         $req->validate([
