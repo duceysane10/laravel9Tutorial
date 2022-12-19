@@ -1,0 +1,109 @@
+installation //////////////
+//////////////////////////
+After you have installed PHP and Composer, you may create a new Laravel project via the Composer create-project command:
+
+composer create-project laravel/laravel example-app
+/////////////////////////////////////////////////////
+
+Or, you may create new Laravel projects by globally installing the Laravel installer via Composer:
+
+composer global require laravel/installer
+then create your project 
+laravel new example-app
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+After the project has been created, start Laravel's local development server using the Laravel's Artisan CLI serve command:
+
+cd example-app
+ 
+php artisan serve																																		
+																																					
+Once you have started the Artisan development server, your application will be accessible in your web browser at http://localhost:8000. Next, you're ready to start taking your next steps into the Laravel ecosystem. Of course, you may also want to configure a database.
+
+/////////////////////////////////////////////////////////
+How to create controller using CLI
+-------------------------------------
+php artisan make:controller Users
+
+/////////////////////////////////////////////////////////
+creating component 
+////////////////////////////////////////////////////
+what is component?
+---------------------
+componentiga waa code aad qoratay si aad dhowr jeer u isticmaashid filel kala duwan sida inaa hal hearder sameesatid projectigaaga 
+how to create?
+php artisan make:component header
+////////////////////////////////////////////////////////////////
+using Blade template====
+----------------------
+si aan u isticmaalno Blade waa inaa code hoos ku qoran qeybta kore kusoo import gareeno =
+----------------------------------------------------------------------------------------
+use Illuminate\Support\Facades\Blade;
+example
+-----------------------------------
+ public function display(){
+        $total =20;
+        return Blade::render(' <h1>{{$totalp}} Tatall Products</h1>',['totalp'=>$total]);
+    }
+/////////////////////////////////////////////////////////////////////////////////////////
+what is @csrf in laravel?
+---------------------------
+Laravel makes it easy to protect your application from cross-site request forgery (CSRF) attacks. 
+Cross-site request forgeries are a type of malicious exploit whereby unauthorized commands are performed on behalf of an authenticated user.
+================================================================================================================
+how to create middleware?
+-------------------------
+php artisan make:middleware agecheck
+/////////////////////////////////////////////////////////////
+How to make model with migration?
+-------------------------------------
+php artisan make:model Category -m
+kedib database columiskaaga diyaarso kuna dhex qoro fileka ku jiro database, migration markaa columyada tablke catgoryga diyaar satid kdib migrate gareey si databaseka loogu abuuro qor codeka hoose
+php artisan migrate
+////////////////////////////////////////////////////////////
+
+php artisan make:migration create_test5_table
+php artisan migrate
+php artisan migrate:reset /// resret waxay qabanee dhamaan migrationka aad sameesay ayeey ka tir tiree database ka
+php artisan migrate:rollback --step 3 //// rolback wuxuu tir tiraa last migrationska aad sameesay 
+php artisan migrate --path=/database/migrations/2020_09_21_141958_create_test5_table.php  ///markaa rabto hal table inaa migration ku sameesid
+php artisan migrate:refresh /// refresh waxay qabanee kaba soo qaad migrationkii aad sameesay ayaad rabtaa inaa colum yadiisa wax ka badashid markaa badashid si databasekana looga badalo waa inaa reftesh is ticmaashaa
+//////////////////////////////////////////////////////////////////////////////////
+What is seeding?
+Seeding ku waa in database kaada xog aan real eheen ku shubatid markaa developmentiga wadid ayeey kaa saacidee.
+How to create Seeding?
+php artisan make:seeder seeder_name
+kedib functionka diyaarso oo xogta aad ugu baaseesid. kedib mar labaad CLI code kaan hoose run gareey.
+
+#All of them ======= dhamaan seederka markaa rabtid in halmar laguu run gareeyo oo databaseka laguugu shubo
+php artisan db:seed
+
+#One class  ======= hal  seeder markaa rabtid in halmar laguu run gareeyo oo databaseka laguugu shubo
+php artisan db:seed --class=NameOfTheSeeder
+
+/////////////////////////////////////////////////////////////
+we can create model, controller and migrations in single command
+php artisan make:model -mcr ( this will create model, controller with functions ( if you don't  want functions simple use (-mc),migration file).
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Sidee laravel9 project loogu kiciyaa portigaa rabto?
+php artisan serve --port 5000.
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Creating Markdown Mail Template:
+php artisan make:mail Samplemail --markdown=emails.Samplemail
+//////////////////////////////////////////////////////////////////////////////////////
+Si aad u abuurtid Controller api aad u isticmaashid oo dhamaan functionska api ga kuu genrate gareeyo core codeka hoose
+ php artisan make:controller filleController --api
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+installing Livewire?
+first install live wire package:
+composer require livewire/livewire
+second create live wire component exmpl:
+php artisan make:livewire ContcatForm
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+clearing laravel cache :
+php artisan cache:clear
+////////////////////////////////////////////////////////////////////////////////////////////////////
+How To Add Column Existing Table in side Laravel ?
+php artisan make:migration add_image_and_is_popular_column_to_categories_table --table=categories
+////////////////////////////////////////////////////////////////////////////////////////////////////////

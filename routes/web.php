@@ -3,10 +3,13 @@
 use App\Http\Controllers\addmember;
 use App\Http\Controllers\login;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\products;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Users;
 use App\Http\Controllers\UploadController;
+use App\Http\Livewire\ContactForm;
+use App\Http\Livewire\ShowContacts;
 use App\Mail\Samplemail;
 use GuzzleHttp\Middleware;
 
@@ -112,7 +115,13 @@ Route :: view('addm','addm');
 
 
 //// Email Template
-
 Route::get('mail', function () {
     return new Samplemail();
 });
+
+////////// Livewire form ////////////////
+Route::get('/contact',ContactForm::class);
+Route::get('/Allcontact',ShowContacts::class);
+
+/// sendig email
+Route::get('/sendEmail',[MailController::class,'sendmail']);
